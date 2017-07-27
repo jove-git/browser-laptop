@@ -8,6 +8,7 @@ const tabState = require('../../common/state/tabState')
 
 // Constants
 const appConstants = require('../../../js/constants/appConstants')
+const {STATE_SITES} = require('../../../js/constants/stateConstants')
 
 // Utils
 const {makeImmutable} = require('../../common/state/immutableUtil')
@@ -34,9 +35,7 @@ const pinnedSitesReducer = (state, action, immutableAction) => {
           } else {
             state = pinnedSitesState.removePinnedSite(state, siteDetail)
           }
-          if (syncUtil.syncEnabled()) {
-            state = syncUtil.updateSiteCache(state, siteDetail)
-          }
+          state = syncUtil.updateObjectCache(state, siteDetail, STATE_SITES.PINNED_SITES)
         }
         break
       }
@@ -57,11 +56,8 @@ const pinnedSitesReducer = (state, action, immutableAction) => {
           action.prepend
         )
 
-        // TODO do we need this for pinned sites?
-        if (syncUtil.syncEnabled()) {
-          const newSite = state.getIn(['pinnedSites', action.siteKey])
-          state = syncUtil.updateSiteCache(state, newSite)
-        }
+        const newSite = pinnedSitesState.getSite(state, action.siteKey)
+        state = syncUtil.updateObjectCache(state, newSite, STATE_SITES.PINNED_SITES)
         break
       }
   }
