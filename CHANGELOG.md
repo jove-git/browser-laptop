@@ -1,8 +1,8 @@
 # Changelog
 
-## [0.18.13](https://github.com/brave/browser-laptop/releases/tag/v0.18.13dev)
+## [0.18.14](https://github.com/brave/browser-laptop/releases/tag/v0.18.14dev)
  - Added a welcome screen for first time users. ([#9423](https://github.com/brave/browser-laptop/issues/9423))
- - Added Chromium spell checker. ([#9880](https://github.com/brave/browser-laptop/issues/9880))
+ - Added Chromium spell checker (in place of Electron spell checker). ([#9880](https://github.com/brave/browser-laptop/issues/9880))
  - Added an option to disable "Top Sites" in autocomplete. ([#4977](https://github.com/brave/browser-laptop/issues/4977))
  - Added "Hide Lower" button on Brave Payments. ([#9137](https://github.com/brave/browser-laptop/issues/9137))
  - Optimized sending messages only to needed windows instead of all windows. ([#9701](https://github.com/brave/browser-laptop/issues/9701))
